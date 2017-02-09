@@ -1,4 +1,4 @@
-// Licensed under the Apache License, Version 2.0 (the "License");
+ï»¿// Licensed under the Apache License, Version 2.0 (the "License");
 
 // you may not use this file except in compliance with the License.
 
@@ -57,7 +57,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				var text = "§A¦n"
+				var text = "ä½ å¥½"
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(text +":"+message.Text+" OK!")).Do(); err != nil {
 					log.Print(err)
 				}
