@@ -26,10 +26,8 @@ import (
 	"os"
 
 	"bytes"
-	"fmt"
 	"github.com/line/line-bot-sdk-go/linebot"
 	"io/ioutil"
-	"net/http"
 )
 
 var bot *linebot.Client
