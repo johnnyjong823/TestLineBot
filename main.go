@@ -58,7 +58,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				var text = ""
+				var text = message.text+","
 				var jsonStr = []byte(`{}`)
 				url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
 				text += "URL:>" + url
