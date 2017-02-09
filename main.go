@@ -24,10 +24,10 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	"bytes"
-	"github.com/line/line-bot-sdk-go/linebot"
+	"bytes"	
 	"io/ioutil"
+	
+	"github.com/line/line-bot-sdk-go/linebot"
 )
 
 var bot *linebot.Client
@@ -60,7 +60,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
 				var text = message.text+","
 				var jsonStr = []byte(`{}`)
-				url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
+				var url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
 				text += "URL:>" + url
 
 				req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
