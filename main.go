@@ -60,7 +60,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
 				var text = message.text+","
 				var jsonStr = []byte(`{}`)
-				var url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
+				url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
 				text += "URL:>" + url
 
 				req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
