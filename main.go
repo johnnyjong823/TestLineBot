@@ -65,7 +65,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
 				text += "URL:>" + url
 
-				req, err := http.NewRequest("POST", url, jsonStr )
+				req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 				req.Header.Set("X-Custom-Header", "myvalue")
 				req.Header.Set("Content-Type", "application/json")
 				client := &http.Client{}
