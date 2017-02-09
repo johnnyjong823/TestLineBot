@@ -17,6 +17,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"bytes"	
+	"io/ioutil"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
