@@ -59,22 +59,22 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var text = message.text+","
-				var jsonStr = []byte(`{}`)
-				url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
-				text += "URL:>" + url
+				//var jsonStr = []byte(`{}`)
+				//url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
+				//text += "URL:>" + url
 
-				req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
-				req.Header.Set("X-Custom-Header", "myvalue")
-				req.Header.Set("Content-Type", "application/json")
-				client := &http.Client{}
-				resp, err := client.Do(req)
-				if err != nil {
-					panic(err)
-				}
-				defer resp.Body.Close()
+				//req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+				//req.Header.Set("X-Custom-Header", "myvalue")
+				//req.Header.Set("Content-Type", "application/json")
+				//client := &http.Client{}
+				//resp, err := client.Do(req)
+				//if err != nil {
+				//	panic(err)
+				//}
+				//defer resp.Body.Close()
 
-				body, _ := ioutil.ReadAll(resp.Body)
-				text += "response Body:" + string(body)
+				//body, _ := ioutil.ReadAll(resp.Body)
+				//text += "response Body:" + string(body)
 
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(text)).Do(); err != nil {
 					log.Print(err)
