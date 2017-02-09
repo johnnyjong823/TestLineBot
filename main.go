@@ -61,10 +61,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var text = ""
+				var jsonStr = []byte(`{}`)
 				url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
-				text += "URL:>"+ url
+				text += "URL:>" + url
 
-				req, err := http.NewRequest("POST", url, "{}")
+				req, err := http.NewRequest("POST", url, jsonStr )
 				req.Header.Set("X-Custom-Header", "myvalue")
 				req.Header.Set("Content-Type", "application/json")
 				client := &http.Client{}
@@ -73,10 +74,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					panic(err)
 				}
 				defer resp.Body.Close()
-				
+
 				body, _ := ioutil.ReadAll(resp.Body)
 				text += "response Body:" + string(body)
-				
+
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(text)).Do(); err != nil {
 					log.Print(err)
 				}
